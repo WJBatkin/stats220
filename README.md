@@ -20,5 +20,6 @@ A little about me:
 - If you want to slap someone in the face click this link 
 (http://eelslap.com/) 
 
-##A meme that captures how I currently feel about my university studies is ![](https://media1.tenor.com/m/vSOipmxhVSgAAAAC/dog-relax.gif)
+- A meme that captures how I currently feel about my university studies is 
+![](https://media1.tenor.com/m/vSOipmxhVSgAAAAC/dog-relax.gif)
 
