@@ -19,5 +19,5 @@ A little about me:
 
 - If you want to slap someone in the face click this link 
 (http://eelslap.com/) 
-A meme that captures how I currently feel about my university studies is ![](https://tenor.com/view/gymskin-chune-tune-follow-that-tune-follow-that-chune-gif-2004552023177760113)
+A meme that captures how I currently feel about my university studies is ![](https://media.tenor.com/lNsuf0ipFU4AAAAC/gymskin-tune.gif)
 
