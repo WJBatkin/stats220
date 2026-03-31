@@ -1,0 +1,67 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+
+```
+
+```{css}
+
+```
+
+##My Daily Commute Observations
+
+##I aim to identify patterns regarding bus time efficiency, weather impacts and general crowd levels. 
+
+```{r}
+library(tidyverse)
+
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSFeP4TOZIlb62y1RZ39Ha9aSbFWpv9xjsxsYxa0kysxEcOqdkRNz7aU3ly4_O1Hya0FC4akQy3lNKT/pub?gid=1946676249&single=true&output=csv")
+
+latest_data <- logged_data %>%
+  rename(
+    timestamp = 1,
+    weather = 2,
+    mins_late = 3,
+    crowd_level = 4,
+    direction = 5
+  )
+
+total_commutes <- latest_data$timestamp %>% 
+  length()
+
+mean_mins_late <- latest_data$mins_late %>% 
+  mean(na.rm = TRUE) %>% 
+  round(1)
+
+latest_data %>%
+  ggplot() +
+  geom_bar(aes(y = weather, fill = direction)) +
+  labs(
+    title = "Weather Conditions During Commutes",
+    subtitle = "Grouped by the primary purpose/direction of travel",
+    x = "Number of Observations",
+    y = "Weather Condition",
+    fill = "Direction",
+    caption = "Source: STATS 220 Observational Log"
+  ) +
+  theme_minimal()
+
+latest_data %>%
+  ggplot() +
+  geom_bar(aes(x = crowd_level), fill = "midnightblue") +
+  labs(
+    title = "Transit Crowdedness Levels",
+    subtitle = "How busy was the bus/train upon boarding?",
+    x = "Crowd Rating (1 = Empty, 5 = Packed)",
+    y = "Frequency",
+    caption = "Source: STATS 220 Observational Log"
+  ) +
+  theme_minimal()
+
+paste("I have logged exactly", total_commutes, "bus trips. Across all observations, the transit vehicle was running an average of", mean_mins_late, "minutes late from its scheduled arrival time.")
+
+```
